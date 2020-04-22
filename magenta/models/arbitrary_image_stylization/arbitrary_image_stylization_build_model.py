@@ -80,7 +80,7 @@ def build_model(content_input_,
       reuse=reuse)
 
   # Defines the style transformer network.
-  stylized_images = transformer_model.transform(
+  stylized_images, features = transformer_model.transform(
       content_input_,
       normalizer_fn=ops.conditional_style_norm,
       reuse=reuse,
@@ -100,7 +100,7 @@ def build_model(content_input_,
         style_weights=style_weights,
         total_variation_weight=total_variation_weight)
 
-  return stylized_images, total_loss, loss_dict, bottleneck_feat
+  return stylized_images, total_loss, loss_dict, bottleneck_feat, features
 
 
 def style_prediction(style_input_,

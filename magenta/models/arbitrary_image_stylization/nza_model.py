@@ -80,11 +80,13 @@ def transform(input_,
         h = model_util.residual_block(h, 3, 'residual3')
         h = model_util.residual_block(h, 3, 'residual4')
         h = model_util.residual_block(h, 3, 'residual5')
+        features = h
+
       with tf.variable_scope('expand'):
         h = model_util.upsampling(h, 3, 2, int(alpha * 64), 'conv1')
         h = model_util.upsampling(h, 3, 2, int(alpha * 32), 'conv2')
         return model_util.upsampling(
-            h, 9, 1, 3, 'conv3', activation_fn=tf.nn.sigmoid)
+            h, 9, 1, 3, 'conv3', activation_fn=tf.nn.sigmoid), features
 
 
 def style_normalization_activations(pre_name='transformer',

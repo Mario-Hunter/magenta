@@ -96,7 +96,7 @@ def build_mobilenet_model(content_input_,
   )
 
   # Defines the style transformer network
-  stylized_images = transformer_model.transform(
+  stylized_images,features = transformer_model.transform(
       content_input_,
       alpha=transformer_alpha,
       normalizer_fn=ops.conditional_style_norm,
