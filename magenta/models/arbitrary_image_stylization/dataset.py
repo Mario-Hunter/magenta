@@ -5,7 +5,7 @@ from torchvision import transforms, utils
 import numpy as np
 import PIL
 from PIL import Image
-from flowlib import read
+from magenta.models.arbitrary_image_stylization.flowlib import read
 from skimage import io, transform
 
 device = 'cuda'

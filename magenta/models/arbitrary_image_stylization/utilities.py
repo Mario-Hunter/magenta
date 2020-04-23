@@ -11,7 +11,7 @@ import torchvision.utils as vutils
 from torch.autograd import Variable
 from PIL import Image
 import matplotlib.pyplot as plt
-import flowlib
+import magenta.models.arbitrary_image_stylization.flowlib
 
 device = 'cuda'
 ALPHA = 1e13  # previously 12, 2e10
